@@ -1,0 +1,7 @@
+" Generate lex.yy.c
+flex [analyzer].l
+
+" Compile
+gcc -ll lex.yy.c
+
+" run code
