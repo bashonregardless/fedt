@@ -1,3 +1,6 @@
+" Link to manual 
+https://westes.github.io/flex/manual/
+
 " Generate lex.yy.c
 flex [analyzer].l
 

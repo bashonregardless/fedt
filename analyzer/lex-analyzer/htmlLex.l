@@ -5,24 +5,28 @@
 
 DIGIT   	[0-9]
 ID      	[a-z][a-z0-9]*
-HTML_TAG	[a-z][^_\WA-Z]*
-REACT_TAG	[A-Z][^_\W]*
+HTML_TAG	[a-z][a-z]*
+REACT_TAG	[A-Z][[:alnum:]]*
 
 %%
 
-\<({HTML_TAG})	{
-				  printf("An html tag { text: %s, len: %zu }\n", yytext, yyleng);
+"<"{HTML_TAG}	{
+  int yytextlen = yyleng;
+  char tagName[yytextlen - 1]; 
+  printf("tagName length: %lu, sizeof tagName: %lu\n", strlen(tagName), sizeof(tagName));
+  strncpy(tagName, yytext + 1, yytextlen - 1);
+  printf("An html tag { yytext: %s, yyleng: %zu, text: %s, len: %lu }\n", yytext, yyleng, tagName, strlen(tagName));
 				}
 
-\<({REACT_TAG})		{
+"<"{REACT_TAG}		{
 					  printf("A react tag { text: %s, len: %zu }\n", yytext, yyleng);
 					}
 
-\<(\/{HTML_TAG})	{
+"</"{HTML_TAG}	{
 					  printf("An closing html tag { text: %s, len: %zu }\n", yytext, yyleng);
 					}
 
-\<(\/{REACT_TAG})	{
+"</"{REACT_TAG}	{
 					  printf("An closing react tag { text: %s, len: %zu }\n", yytext, yyleng);
 					}
 
