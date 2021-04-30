@@ -1,34 +1,30 @@
-%{
-/* need this for the call to atof() below */
-#include <math.h>
-%}
-
-DIGIT   	[0-9]
-ID      	[a-z][a-z0-9]*
 HTML_TAG	[a-z][a-z]*
 REACT_TAG	[A-Z][[:alnum:]]*
 
 %%
 
 "<"{HTML_TAG}	{
-  int yytextlen = yyleng;
-  char tagName[yytextlen - 1]; 
-  printf("tagName length: %lu, sizeof tagName: %lu\n", strlen(tagName), sizeof(tagName));
-  strncpy(tagName, yytext + 1, yytextlen - 1);
-  printf("An html tag { yytext: %s, yyleng: %zu, text: %s, len: %lu }\n", yytext, yyleng, tagName, strlen(tagName));
-				}
+  char tagName[yyleng - 1]; 
+  printf("tagName: %s, tagName length: %lu\n", tagName, strlen(tagName));
+  //strndup(tagName, yytext + 1, yyleng - 1);
+  //printf("An html tag { yytext: %s, yyleng: %zu, text: %s, len: %lu }\n", yytext, yyleng, tagName, strlen(tagName));
+  printf("\n\n");
+}
 
-"<"{REACT_TAG}		{
+"<"{REACT_TAG}	{
 					  printf("A react tag { text: %s, len: %zu }\n", yytext, yyleng);
-					}
+					  printf("\n\n");
+}
 
 "</"{HTML_TAG}	{
 					  printf("An closing html tag { text: %s, len: %zu }\n", yytext, yyleng);
-					}
+					  printf("\n\n");
+}
 
 "</"{REACT_TAG}	{
 					  printf("An closing react tag { text: %s, len: %zu }\n", yytext, yyleng);
-					}
+					  printf("\n\n");
+}
 
 [ \t\n]	/* eat up whitespace */
 

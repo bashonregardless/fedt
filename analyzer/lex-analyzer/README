@@ -6,5 +6,7 @@ flex [analyzer].l
 
 " Compile
 gcc -ll lex.yy.c
+" Debian - compile
+gcc lex.yy.c -ll
 
 " run code
