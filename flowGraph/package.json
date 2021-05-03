@@ -12,7 +12,9 @@
     "type": "git",
     "url": "git+https://github.com/hankchizljaw/vanilla-js-state-management.git"
   },
-  "keywords": [],
+  "keywords": [
+    
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {

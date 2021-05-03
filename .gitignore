@@ -4,4 +4,4 @@ lex.yy.c
 *.out
 *.swp
 yacc-tutorial/
-
+typescript
