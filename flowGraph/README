@@ -1,5 +1,10 @@
 After cloning the repo
 
-npm install
-npm run build
-npm run start
+Install Webpack development server that provides live reloading.
+This should be used for development only.
+
+`npm install webpack-dev-server --save-dev`
+
+`npm install`
+`npm run build`
+`npm run start`

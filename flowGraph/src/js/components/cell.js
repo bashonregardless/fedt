@@ -1,8 +1,6 @@
 import Proto from '../utils/helpers/proto.js';
-
 import Component from '../lib/component.js';
 import TreeEdges from './treeEdges.js';
-
 import store from '../store/index.js';
 import { DIMENSION } from '../utils/constants.js';
 
@@ -131,9 +129,8 @@ var Cell = function(props = {}) {
 	   * @returns {void}
 	   */
 
-	  //this.element.innerHTML = `
-	  return
-		`<svg 
+	  return `
+		  <svg 
 			viewBox={-((this.calSVGWidth() - 300) / 2) 0 this.calSVGWidth() this.calSVGHeight()}
 			width={this.calSVGWidth()}
 			height={this.calSVGHeight()}
@@ -144,7 +141,9 @@ var Cell = function(props = {}) {
 			  { this.insertNode() }
 			</g>
 			<TreeEdges />
-		  </svg>`;
+		  </svg>
+		`;
+	  //this.element.innerHTML = `
 	  //`<svg 
 	  //  	viewBox="-${(this.calSVGWidth() - 300) / 2} 0 ${this.calSVGWidth()} ${this.calSVGHeight()}"
 	  //  	width="${this.calSVGWidth()}"

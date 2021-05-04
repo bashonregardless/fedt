@@ -9,16 +9,21 @@ var LifeCycle = function(RootEl) {
   var order = ['init', 'render', 'componentDidMount', 'componentWillUnmount'];
 
   // Instantiate components
-  //const cell = RootEl();
+  const cell = RootEl();
 
   // initialize the component
   //cell.init();
   
-  cell.render();
+  var renderReturnHTML = cell.render();
 
-  //var renderReturnHTML = cell.render();
-
-  parse(renderReturnHTML);
+  /* TODO parse.
+	* From this point html string has to be parsed.
+	* Hiherto, your html string is in JSX format.
+	* 
+	* Q. Decide on whether this html should be JSX
+	* 	 or something else, and then how to parse it?
+	*/
+  //parse(renderReturnHTML);
 }
 
 export default LifeCycle;
